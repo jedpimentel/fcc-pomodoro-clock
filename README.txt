@@ -1,7 +1,7 @@
 This project was created as part of FreeCodeCamp.com front-end curriculum.
 http://www.freecodecamp.com/challenges/zipline-build-a-pomodoro-clock
 
-The "design" jpg is included for reference, in case anyone is interested. It was the initial sketch sketch I made, some parts should be striked out as I'm no longer interested in them. I had used an airhorn wav as a placeholder "alarm", but then I started to get fond of it and now I can't fathom removing it. It might startle someone hearing it for the first time though. Maybe an option to switch alarm type might be nice.
+The "design" jpg is included for reference, in case anyone is interested. It was the initial sketch I made, some parts should be striked out as I'm no longer interested in them. I had used an airhorn wav as a placeholder "alarm", but then I started to get fond of it and now I can't bear removing it. It might startle someone hearing it for the first time though. Maybe an option to switch alarm type might be nice.
 
 I tried to use this workflow:
 
