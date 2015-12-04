@@ -1,3 +1,63 @@
+/*
+app should have a width of 480 pixels (vertical lines on Lumia 520)
+this isn't meant to like a 'website', it's just a timer, 
+*/
+
 * {
 	font-family: monospace;
+	font-size: 32px;
+	padding: -10px;
+	
+}
+
+.row {
+	border: 1px solid black;
+	width:480px;
+}
+
+.box {
+	float: left;
+	display: inline-block;
+	width: 160px;
+	height: 160px;
+	
+	
+	
+	border-radius: 10px;
+	/*this is for the borders to overlap*/ 
+	
+	/*
+	position: relative;
+	margin-left: -1px;
+	margin-top: -1px;
+	*/
+}
+
+.box + *{
+	vertical-align: middle;
+	
+	
+}
+
+.x-center {
+	border: 1px solid red;
+	text-align: center;
+	vertical-align: middle;
+	margin: auto;
+}
+
+.y-center {
+	border: 1px solid blue;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.setting-counter {
+	background-color: #EEE;
+}
+
+
+#slider {
+	clear: left;
 }
