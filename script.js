@@ -144,7 +144,12 @@ function intNumDigits(intNum, digitCount) {
 	if (digits.length > digitCount) {
 		return intNum;
 	}
-	return '0'.repeat(digitCount-digits.length) + digits;
+	var padding = "";
+	var zeros = digitCount-digits.length;
+	while (0 < zeros--) {
+		padding += "0";
+	}
+	return padding + digits;
 }
 
 var clipHorn  = new Audio('air horn.mp3');
@@ -160,7 +165,7 @@ function playHorn() {
 
 var clipClick = new Audio('click.mp3');
 function click() {
-	console.log(arguments[0]);
+	//console.log(arguments[0]);
 	if (arguments[0] === 'low') {
 		clipClick.volume = 0.20;
 	} else if (arguments[0] === 'very-low') {
@@ -168,7 +173,7 @@ function click() {
 	} else {
 		clipClick.volume = 1.00;
 	}
-	console.log(clipClick.volume);
+	//console.log(clipClick.volume);
 	clipClick.currentTime = 0;
 	clipClick.play();
 }
