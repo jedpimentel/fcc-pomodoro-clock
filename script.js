@@ -1,18 +1,29 @@
+/* N E V E R   F O R G E T T I ,   M O M'S   S P A G E T T I */
+/* 
+	TO DO:
+		replace the the 'break' in 'clock-break' with onother name
+*/
+
 var DEFAULT_WORK_MINS = 25;
 var DEFAULT_BREAK_MINS = 05;
 var SEGMENT_LIMIT = 99;
 
 var timerTime = DEFAULT_WORK_MINS * 60;
 
+var START_BUTTON_INITIAL = 'START'; // clock.tick = "stopped"
+var START_BUTTON_UNPAUSED = 'PAUSE' // clock.tick = "tunning"
+var START_BUTTON_PAUSED = 'START'; //c lock.tick = "stopped"
+// I used "START" again, instead of "CONTINUE" since it would've messed up the monospace style.
+
 var clock = {}
 clock.time = DEFAULT_WORK_MINS * 60;
 document.addEventListener("DOMContentLoaded", function(event) {
 	clock.work    = new SegmentCounter( "work-time", DEFAULT_WORK_MINS , 'i', 'k'),
 	clock.break   = new SegmentCounter("break-time", DEFAULT_BREAK_MINS, 'o', 'l'),
-	clock.screen  = document.getElementById("time-left");
-	clock.state   = document.getElementById("time-state");
+	clock.screen  = document.getElementById("timer-time");
+	clock.state   = document.getElementById("timer-start");
 	clock.tick    = 'stopped' //states: 'stopped', 'running', 'paused' 
-	clock.segment = "work";
+	clock.segment = "work"; //states: 'work', 'break'
 	
 	updateSegmentState();
 	
@@ -21,7 +32,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	button[String.fromCharCode(13)] = stop;//enter button
 	
 	updateScreen();
+	
+	
+	/* CLICK HANDLERS START */
+	function setClickEvent(id, f) {
+		var target = document.getElementById(id);
+		target.addEventListener("click", f);
+	}
+	setClickEvent(    "work-up", clock.work.minUp);
+	setClickEvent(  "work-down", clock.work.minDown);
+	setClickEvent(   "break-up", clock.break.minUp);
+	setClickEvent( "break-down", clock.break.minDown);
+	setClickEvent("timer-reset", stop);
+	setClickEvent("timer-start", start);
+	/* CLICK HANDLERS END */
+	
+	/* MOUSEWHEEL HANDLERS START */
+	function setScrollEvent(id, scrollUpFunction, scrollDownFunction) {
+		var target = document.getElementById(id);
+		target.addEventListener("mousewheel", function(event) {
+			if (event.deltaY < 0) { scrollUpFunction(); }
+			if (event.deltaY > 0) { scrollDownFunction(); }
+		});
+		
+	}
+	setScrollEvent( "work-counter", clock.work.minUp , clock.work.minDown);
+	setScrollEvent("break-counter", clock.break.minUp, clock.break.minDown);
+	
+	
+	
+	
 });
+
 
 function updateScreen() {
 	var time = clock.time;
@@ -83,14 +125,19 @@ function switchSegment() {
 	updateSegmentState();
 }
 
+
 function updateSegmentState() {
-	var message = clock.segment.toUpperCase();
+	//var message = clock.segment.toUpperCase();
+	var message = '';
 	if (clock.tick == "paused") {
-		message += ' = PAUSED ='
+		// counter was paused aftert running
+		message = START_BUTTON_PAUSED;
 	} else if (clock.tick == "stopped") {
-		message += ' = STOPPED ='
+		// counter was reset or hasn't started yet
+		message = START_BUTTON_INITIAL
 	} else {
-		message += ' TIME!!!'
+		// counter is running
+		message = START_BUTTON_UNPAUSED;
 	}
 	clock.state.innerHTML = message;
 }

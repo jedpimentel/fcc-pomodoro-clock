@@ -5,23 +5,27 @@ this isn't meant to like a 'website', it's just a timer,
 
 * {
 	font-family: monospace;
-	font-size: 32px;
-	padding: -10px;
-	
 }
 
-.row {
-	border: 1px solid black;
-	width:480px;
+
+
+h1 {
+	font-size: 5em;
+	text-align: center;
+	margin: -.20em;
 }
 
+#container {
+	border: 1px solid green;
+	height: 24em;
+	width: 57em;
+	margin: auto;
+}
 .box {
 	float: left;
 	display: inline-block;
-	width: 160px;
-	height: 160px;
-	
-	
+	width: 19em;
+	height: 19em;
 	
 	border-radius: 10px;
 	/*this is for the borders to overlap*/ 
@@ -34,19 +38,30 @@ this isn't meant to like a 'website', it's just a timer,
 }
 
 .box + *{
-	vertical-align: middle;
+	vertical-align: middle; /*junk code? */
 	
 	
 }
 
-.x-center {
-	border: 1px solid red;
+.slot {
+	
+
+	padding: auto;
+	/*border: 1px solid red;*/
+	font-size: 4em;
+	height: 1em;
+	line-height: 1em;
 	text-align: center;
 	vertical-align: middle;
-	margin: auto;
+	margin: .50em;
+	
+	background-color: #FEE;
+	
 }
 
+/* THIS DOES NOTHING??? */
 .y-center {
+	height:100%;
 	border: 1px solid blue;
 	position: relative;
 	top: 50%;
