@@ -15,15 +15,15 @@ Step 5: Create your fancy interface, replacing the basic HTML version.
 
 Step 4.1 panic and remove a bunch of stuff because I actually have to do it now
 
-Also, since I'm already working on this, I might as well try the pomodoro technique myself. If I'm making it, I should be testing/using it myself. Maybe it'll help me feel less unproductive.
+Also, since I'm already working on this, I might as well try the pomodoro technique myself. If I'm making it, I should be testing/using it myself. Maybe it'll help me feel less unproductive... okay I tried it, it actually helps keep me from procrastinating. It felt almost like being in an actual office. 
 
-I'm uploading to github right before "step 5", since I want to try to not use bootstrap, and the HTML part will take me some time. (plus, I kind of like the current state of the app)
+I didn't want to use Bootstrap, which is why I started with the text-based GUI, to then make an okay GUI. It might not have been a good idea, since a lot of my code became useless during the switch.
 
 To do:
-	Fix it so it works on non-chrome browsers;
-	a nice UI
+	progress bar
 	option to switch to another "alarm" wav, for the faint of heart
 	option to save "settings" in local storage, between sessions
+	option to disable the clicks every second.... or maybe just decrease it's volume.
 	not suck at HTML
 
 fcc username: jedpimentel
