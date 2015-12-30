@@ -4,7 +4,7 @@ app width depends on how the browser deals with the default text sizes;
 
 * {
 	font-family: monospace;
-	cursor: crosshair;
+	cursor: cursor;
 	
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -13,6 +13,8 @@ app width depends on how the browser deals with the default text sizes;
 	-ms-user-select: none;
 	user-select: none;
 }
+
+
 
 
 
@@ -51,7 +53,7 @@ h1 {
 }
 
 .slot {
-	
+	cursor: default;
 
 	padding: auto;
 	/*border: 1px solid red;*/
@@ -64,6 +66,10 @@ h1 {
 	
 	background-color: #FEE;
 	
+}
+
+.slot:hover {
+	background-color: #E7E7E7;
 }
 
 /* THIS DOES NOTHING??? */

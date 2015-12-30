@@ -21,6 +21,8 @@ I didn't want to use Bootstrap, which is why I started with the text-based GUI, 
 
 To do:
 	progress bar
+	
+Maybe in a perfect future:
 	option to switch to another "alarm" wav, for the faint of heart
 	option to save "settings" in local storage, between sessions
 	option to disable the clicks every second.... or maybe just decrease it's volume.
