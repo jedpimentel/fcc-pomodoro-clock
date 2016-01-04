@@ -1,5 +1,10 @@
 /* N E V E R   F O R G E T T I ,   M O M'S   S P A G E T T I */
 /* 
+	There is some junk code in here that currently does nothing
+	I had made a text-based interface which used key presses,
+	most of the junk code was originaly made to support that interface.
+*/
+/* 
 	TO DO:
 		replace the the 'break' in 'clock-break' with onother name
 */
@@ -17,6 +22,7 @@ var START_BUTTON_PAUSED = 'START'; //c lock.tick = "stopped"
 
 var clock = {}
 clock.time = DEFAULT_WORK_MINS * 60;
+//clock.percentProgress = 0;
 document.addEventListener("DOMContentLoaded", function(event) {
 	clock.work    = new SegmentCounter( "work-time", DEFAULT_WORK_MINS , 'i', 'k'),
 	clock.break   = new SegmentCounter("break-time", DEFAULT_BREAK_MINS, 'o', 'l'),
@@ -59,10 +65,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	setScrollEvent( "work-counter", clock.work.minUp , clock.work.minDown);
 	setScrollEvent("break-counter", clock.break.minUp, clock.break.minDown);
 	
-	
-	
-	
+	// P R O G R E S S   B A R
+	// float from 0 to 100 during work interval, 100 to 0 during break interval
+	clock.percentProgress = document.getElementById("timer-bar-filler");
+	clock.percentProgress.style.width = 0 + "%";
+
 });
+
+function updatePercent() {
+	var currentLength;
+	var currentPercent;
+	if (clock.segment === 'work') {
+		currentLength = clock.work.minutes * 60;
+		currentPercent = 1 - clock.time / currentLength;
+	}
+	else {
+		currentLength = clock.break.minutes * 60;
+		currentPercent = clock.time / currentLength;
+	}
+	if (clock.percentProgress !== undefined) {
+		clock.percentProgress.style.width = currentPercent * 100 + "%";
+	}
+}
 
 
 function updateScreen() {
@@ -70,6 +94,7 @@ function updateScreen() {
 	var minutes = Math.floor(time/60);
 	var seconds = time % 60;
 	clock.screen.innerHTML = intNumDigits(minutes, 2) + ':' + intNumDigits(seconds, 2);
+	updatePercent();
 }
 
 function screenTick() {
@@ -126,6 +151,7 @@ function switchSegment() {
 }
 
 
+
 function updateSegmentState() {
 	//var message = clock.segment.toUpperCase();
 	var message = '';
@@ -175,7 +201,7 @@ function SegmentCounter(id, minutes, plusChar, minusChar) {
 
 // K E Y   P R E S S   H A N D L E R (generic "key handler")
 // add function to 'button.keyboardChar' to have it handled
-// to be replaced with visual interface
+// replaced by visual interface
 var button = {}
 document.addEventListener("keypress", function(event) {
 	var keyChar = String.fromCharCode(event.which);
