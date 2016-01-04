@@ -8,12 +8,38 @@
 </head>
 
 <body>
-<p>"AT LEAST IT WORKS" POMODORO CLOCK</p>
-<h3>Time left:&#160; <span id="time-left">00:00</span>&#160; <span id="time-state"></span></h3>
-<p>Work time:&#160; <span id="work-time">123</span> minutes &#160;&#160;(UP: 'i' / DOWN: 'k')</p>
-<p>Break time: <span id="break-time">456</span> minutes &#160;&#160;(UP: 'o' / DOWN: 'l')</p>
-<p>START/PAUSE timer: &#160;&#160;&#160;&#160;&#160; (SPACE BAR)</p>
-<p>RESET/STOP timer: &#160;&#160;&#160;&#160;&#160;&#160; (ENTER BUTTON)</p>
+	<h1>POMODORO CLOCK</h1>
+	<div id="container" class="row">
+	
+		<span id="work-counter" class="setting-counter box">
+			<div class="y-center">
+				<div class="slot" id="work-up">&#x25B2;</div>
+				<div class="slot" id="work-time"></div>
+				<div class="slot" id="work-down">&#x25BC; </div>
+			</div>
+		</span>
+		
+		<span id="timer" class="box">
+			<div class="y-center">
+				<div class="slot" id="timer-reset">RESET</div>
+				<div class="slot" id="timer-time"></div>
+				<div class="slot" id="timer-start">START</div>
+			</div>
+		</span>
+		
+		<span id="break-counter" class="setting-counter box">
+			<div class="y-center">
+				<div class="slot" id="break-up">&#x25B2; </div>
+				<div class="slot" id="break-time"></div>
+				<div class="slot" id="break-down">&#x25BC; </div>
+			</div>
+		</span>
+		
+		<div id ="timer-bar"><div id = "timer-bar-filler"></div></div>
+	</div>
+
 </body>
+
+
 
 </html>

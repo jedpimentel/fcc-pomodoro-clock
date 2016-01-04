@@ -1,3 +1,87 @@
+/*
+app width depends on how the browser deals with the default text sizes;
+*/
+
 * {
 	font-family: monospace;
+	cursor: cursor;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+h1 {
+	font-size: 5em;
+	text-align: center;
+	margin: -.20em;
+}
+
+#container {
+	height: 24em;
+	width: 57em;
+	margin: auto;
+}
+.box {
+	float: left;
+	display: inline-block;
+	width: 19em;
+	height: 19em;
+	
+	border-radius: 10px;
+	/*this is for the borders to overlap*/ 
+	
+	/*
+	position: relative;
+	margin-left: -1px;
+	margin-top: -1px;
+	*/
+}
+
+.box + *{
+	vertical-align: middle; /*junk code? */
+	
+	
+}
+
+.slot {
+	cursor: default;
+
+	padding: auto;
+	/*border: 1px solid red;*/
+	font-size: 4em;
+	height: 1em;
+	line-height: 1em;
+	text-align: center;
+	vertical-align: middle;
+	margin: .50em;
+	
+	background-color: #FEE;
+	
+}
+
+.slot:hover {
+	background-color: #EEF;
+}
+
+
+
+.setting-counter {
+	background-color: #EEE;
+}
+
+
+#timer-bar {
+	clear: left;
+	width: 100%;
+	height: 1em;
+	background: pink;
+}
+
+#timer-bar-filler {
+	background: #C0CBFF;
+	height: 100%;
+	width: 20%;
 }
